@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="manifest" href=".webmanifest" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <div class="cover"></div>
+    <div class="form">
+      <form action="">
+        <div class="double">
+          <fieldset>
+            <legend>Name</legend>
+            <div class="row">
+              <label for="fname">First Name</label>
+              <input type="text" name="name.fname" id="fname" />
+            </div>
+            <div class="row">
+              <label for="lname">Last Name</label>
+              <input type="text" name="name.lname" id="lname" />
+            </div>
+            <div class="row">
+              <label for="fullname">Full Name</label>
+              <input type="text" name="name.fullname" id="fullname" />
+            </div>
+          </fieldset>
+
+          <fieldset class="uploads">
+            <legend>CV & Photo</legend>
+            <div class="row">
+              <label for="photo"><div class="preview">Photo</div></label>
+              <input
+                type="file"
+                name="photo"
+                id="photo"
+                accept="image/*"
+                hidden
+              />
+            </div>
+            <div class="row">
+              <label for="cv"><div class="preview">cv</div></label>
+              <input
+                type="file"
+                hidden
+                name="cv"
+                id="cv"
+                accept=".pdf,.doc,.dox"
+              />
+            </div>
+          </fieldset>
+        </div>
+        <div class="single">
+          <fieldset>
+            <legend>Perosnal Info</legend>
+            <div class="row">
+              <label for="gender">Gender</label>
+              <select name="gender" id="gebder">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="row">
+              <label for="dob">Date of Birth</label>
+              <input type="date" name="birthday" id="dob" />
+            </div>
+            <div class="row">
+              <label for="bio">Bio</label>
+              <textarea name="bio" id="bio" cols="50" rows="3 "></textarea>
+            </div>
+          </fieldset>
+        </div>
+        <div class="single">
+          <fieldset>
+            <legend>Communication</legend>
+            <fieldset>
+              <legend>Phones</legend>
+              <div class="phones" data-template="phone">
+                <span class="add">Add Phone Number</span>
+                <div class="row">
+                  <label for="phone">Phone</label>
+                  <div class="line">
+                    <input
+                      type="text"
+                      required
+                      name="phone.code"
+                      class="code"
+                      value="02"
+                    />
+                    <input
+                      type="tel"
+                      name="phone.number"
+                      placeholder="Number"
+                      id=""
+                      required
+                    />
+                    <input
+                      required
+                      type="text"
+                      name="phone.description"
+                      placeholder="Description"
+                      id=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Locations</legend>
+              <div class="locations" data-template="location">
+                <span class="add">Add An other Location</span>
+                <div class="row">
+                  <div class="subRow">
+                    <div class="row">
+                      <label for="country">country</label>
+                      <input
+                        type="text"
+                        name="location.country"
+                        value="Egypt"
+                        id="country"
+                      />
+                    </div>
+                    <div class="row">
+                      <label for="gouvernment">Gouvernmant</label>
+                      <input
+                        type="text"
+                        name="location.government"
+                        id="gouvernment"
+                      />
+                    </div>
+                    <div class="row">
+                      <label for="city">City</label>
+                      <input type="text" name="location.city" id="city" />
+                    </div>
+                    <div class="row">
+                      <label for="street">Street</label>
+                      <input type="text" name="location.street" id="street" />
+                    </div>
+                    <div class="row">
+                      <label for="bNumber">Building Number</label>
+                      <input
+                        type="text"
+                        name="location.buildingNumber"
+                        id="bNumber"
+                      />
+                    </div>
+                    <div class="row">
+                      <label for="nLocation"> Desciption </label>
+                      <input type="text" name="location.description" id="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Emails</legend>
+              <div class="emails" data-template="email">
+                <span class="add">Add Email</span>
+                <div class="row"></div>
+              </div>
+            </fieldset>
+          </fieldset>
+        </div>
+      </form>
+    </div>
+
+    <template id="email"></template>
+    <template id="phone">
+      <div class="row" data-remove>
+        <div class="line">
+          <input
+            type="text"
+            required
+            name="phone.code"
+            class="code"
+            value="02"
+          />
+          <input
+            type="tel"
+            name="phone.number"
+            placeholder="Number"
+            id=""
+            required
+          />
+          <input
+            required
+            type="text"
+            name="phone.description"
+            placeholder="Description"
+            id=""
+          />
+        </div>
+        <span class="remove">X</span>
+      </div>
+    </template>
+    <template id="education"></template>
+    <template id="location">
+      <div class="row">
+        <div class="subRow">
+          <div class="row">
+            <label for="country">country</label>
+            <input
+              type="text"
+              name="location.country"
+              value="Egypt"
+              id="country"
+            />
+          </div>
+          <div class="row">
+            <label for="gouvernment">Gouvernmant</label>
+            <input type="text" name="location.government" id="gouvernment" />
+          </div>
+          <div class="row">
+            <label for="city">City</label>
+            <input type="text" name="location.city" id="city" />
+          </div>
+          <div class="row">
+            <label for="street">Street</label>
+            <input type="text" name="location.street" id="street" />
+          </div>
+          <div class="row">
+            <label for="bNumber">Building Number</label>
+            <input type="text" name="location.buildingNumber" id="bNumber" />
+          </div>
+          <div class="row">
+            <label for="nLocation"> Near Location | Desciption </label>
+            <input type="text" name="location.description" id="" />
+          </div>
+        </div>
+        <span class="remove">X</span>
+      </div>
+    </template>
+    <template id="cources"></template>
+    <template id="workEx"></template>
+    <div class="footer">
+      <footer></footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
