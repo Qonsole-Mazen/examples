@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="main.css" />
     <link rel="manifest" href=".webmanifest" />
     <title>Form Validation</title>
@@ -15,35 +19,44 @@
           <fieldset>
             <legend>Name</legend>
             <div class="row">
-              <label for="fname">First Name</label>
-              <input type="text" name="name.fname" id="fname" />
+              <label for="fname">First Name </label>
+              <input type="text" name="name.fname" id="fname"
+              pattern=/[a-zA-Z]//>
+              <i class="fas fa-check-circle"></i>
             </div>
             <div class="row">
               <label for="lname">Last Name</label>
-              <input type="text" name="name.lname" id="lname" />
+              <input type="text" pattern=/[a-zA-Z]/ name="name.lname" id="lname"
+              />
             </div>
             <div class="row">
               <label for="fullname">Full Name</label>
-              <input type="text" name="name.fullname" id="fullname" />
+              <input type="text" name="name.fullname" pattern=/[a-zA-Z]/
+              id="fullname" />
             </div>
           </fieldset>
 
           <fieldset class="uploads">
             <legend>CV & Photo</legend>
             <div class="row">
-              <label for="photo"><div class="preview">Photo</div></label>
+              <label for="photo"
+                ><div class="preview">
+                  <img src="../images/عام هجري جديد 1445-01.png" alt="" /></div
+              ></label>
               <input
                 type="file"
                 name="photo"
                 id="photo"
                 accept="image/*"
-                hidden
+                hide
               />
             </div>
             <div class="row">
-              <label for="cv"><div class="preview">cv</div></label>
+              <label for="cv"><div class="preview">                  <img src="../images/عام هجري جديد 1445-01.png" alt="" /></div
+              </div></label>
               <input
                 type="file"
+                required
                 hidden
                 name="cv"
                 id="cv"
@@ -55,17 +68,57 @@
         <div class="single">
           <fieldset>
             <legend>Perosnal Info</legend>
-            <div class="row">
-              <label for="gender">Gender</label>
-              <select name="gender" id="gebder">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </div>
-            <div class="row">
-              <label for="dob">Date of Birth</label>
-              <input type="date" name="birthday" id="dob" />
-            </div>
+              <div class="double">
+                <div class="row">
+                  <label for="gender">Gender</label>
+                  <select name="gender" id="gebder">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class="row birth">
+                  <label for="dob">Date of Birth</label>
+                  <input min="1" max="31" type="number" list="dobdlist" placeholder="dd" name="birthday.day" id="dobd" list=""/>
+                  <span>/</span>
+                  <input type="number" min="01" max="12" placeholder="mm" name="birthday.month" id="dobm" />
+                  <span>/</span>
+                  <input type="number" placeholder="yyyy" min="1900" max="2023" name="birthday.yeear" id="doby" />
+                  <datalist id="dobdlist">
+                    <option value="01"></option>
+                    <option value="02"></option>
+                    <option value="03"></option>
+                    <option value="04"></option>
+                    <option value="05"></option>
+                    <option value="06"></option>
+                    <option value="07"></option>
+                    <option value="08"></option>
+                    <option value="00"></option>
+                    <option value="10"></option>
+                    <option value="11"></option>
+                    <option value="12"></option>
+                    <option value="13"></option>
+                    <option value="14"></option>
+                    <option value="15"></option>
+                    <option value="16"></option>
+                    <option value="17"></option>
+                    <option value="18"></option>
+                    <option value="19"></option>
+                    <option value="20"></option>
+                    <option value="21"></option>
+                    <option value="22"></option>
+                    <option value="23"></option>
+                    <option value="24"></option>
+                    <option value="25"></option>
+                    <option value="26"></option>
+                    <option value="27"></option>
+                    <option value="28"></option>
+                    <option value="29"></option>
+                    <option value="30"></option>
+                    <option value="31"></option>
+                  </datalist>
+                </div>
+
+              </div>
             <div class="row">
               <label for="bio">Bio</label>
               <textarea name="bio" id="bio" cols="50" rows="3 "></textarea>
@@ -80,7 +133,13 @@
               <div class="phones" data-template="phone">
                 <span class="add">Add Phone Number</span>
                 <div class="row">
-                  <label for="phone">Phone</label>
+                  <label for="phone">
+                    <select name="description" id="">
+                      <option value="mobile">Mobile</option>
+                      <option value=""></option>
+                      <option value=""></option>
+                    </select>
+                  </label>
                   <div class="line">
                     <input
                       type="text"
@@ -95,13 +154,6 @@
                       placeholder="Number"
                       id=""
                       required
-                    />
-                    <input
-                      required
-                      type="text"
-                      name="phone.description"
-                      placeholder="Description"
-                      id=""
                     />
                   </div>
                 </div>
@@ -163,6 +215,7 @@
             </fieldset>
           </fieldset>
         </div>
+        <button type="submit" >Submit</button>
       </form>
     </div>
 
@@ -192,7 +245,7 @@
             id=""
           />
         </div>
-        <span class="remove">X</span>
+        <span class="remove"></span>
       </div>
     </template>
     <template id="education"></template>
@@ -229,7 +282,7 @@
             <input type="text" name="location.description" id="" />
           </div>
         </div>
-        <span class="remove">X</span>
+        <span class="remove"></span>
       </div>
     </template>
     <template id="cources"></template>
